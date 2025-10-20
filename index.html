@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Anaëlle — Accueil</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@300;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <button id="toggle-admin" class="toggle-admin" aria-pressed="false">🪄 Activer l'édition</button>
+
+  <header class="site-header">
+    <h1 class="logo editable" data-key="site_title">Anaëlle</h1>
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="galerie.html">Galerie</a>
+      <a href="admin.html">Admin</a>
+      <a href="#">Pay Pal</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <h2 class="editable" data-key="hero_title">Bienvenue dans l'univers d'Anaëlle</h2>
+      <p class="editable" data-key="hero_text">Plongez dans un monde coloré, inspiré du style manga moderne. Découvrez des visuels, créations et inspirations uniques !</p>
+    </div>
+  </section>
+
+  <main class="content">
+    <article class="card">
+      <h3 class="editable" data-key="article1_title">Lorem ipsum dolor sit amet</h3>
+      <p class="editable" data-key="article1_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce non enim nec nisl gravida efficitur.</p>
+    </article>
+
+    <article class="card">
+      <h3 class="editable" data-key="article2_title">Curabitur vel ipsum ac lorem</h3>
+      <p class="editable" data-key="article2_text">Curabitur pharetra nisl sit amet enim convallis, id commodo ligula tempus. Suspendisse eu urna.</p>
+    </article>
+
+    <section id="events" class="card events">
+      <h3>Évènements</h3>
+      <div id="events-list"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="editable" data-key="footer_text">© 2025 Anaëlle — Tous droits réservés</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

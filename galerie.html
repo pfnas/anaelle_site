@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Anaëlle — Galerie</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@300;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <button id="toggle-admin" class="toggle-admin" aria-pressed="false">🪄 Activer l'édition</button>
+
+  <header class="site-header">
+    <h1 class="logo editable" data-key="site_title">Anaëlle</h1>
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="galerie.html">Galerie</a>
+      <a href="admin.html">Admin</a>
+      <a href="#">Pay Pal</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2 class="page-title editable" data-key="gallery_title">Galerie Photo</h2>
+
+    <div id="admin-controls" class="admin-controls" style="display:none;">
+      <input id="uploader" type="file" accept="image/*" multiple>
+      <button id="add-sample">Ajouter une image exemple</button>
+      <button id="clear-galerie">Tout supprimer</button>
+    </div>
+
+    <section id="galerie" class="galerie"></section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="editable" data-key="footer_text">© 2025 Anaëlle — Tous droits réservés</p>
+  </footer>
+
+  <script src="js/galerie.js"></script>
+</body>
+</html>

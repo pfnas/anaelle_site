@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <button id="toggle-admin" class="toggle-admin" aria-pressed="false">🪄 Activer l'édition</button>
+  <!-- <button id="toggle-admin" class="toggle-admin" aria-pressed="false">🪄 Activer l'édition</button> -->
 
   <header class="site-header">
     <h1 class="logo editable" data-key="site_title">Anaëlle</h1>
@@ -28,6 +28,7 @@
       <input id="uploader" type="file" accept="image/*" multiple>
       <button id="add-sample">Ajouter une image exemple</button>
       <button id="clear-galerie">Tout supprimer</button>
+      <button id="disable-admin">🔒 Désactiver l’édition</button> 
     </div>
 
     <section id="galerie" class="galerie"></section>
@@ -38,5 +39,6 @@
   </footer>
 
   <script src="js/galerie.js"></script>
+  <script src="./js/index.js"></script>
 </body>
 </html>

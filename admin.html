@@ -1,24 +1,35 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin — Anaëlle</title>
-  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@300;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anaëlle — Administration</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@300;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
-<body class="admin-page">
-  <main class="admin-login">
-    <h1 class="logo">🔒 Accès Administrateur</h1>
-    <p>Entrez le mot de passe pour activer le mode édition.</p>
+<body>
+  <header class="site-header">
+    <h1 class="logo">Administration</h1>
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="galerie.html">Galerie</a>
+    </nav>
+  </header>
 
-    <form id="loginForm">
-      <input type="password" id="password" placeholder="Mot de passe" required>
-      <button type="submit">Connexion</button>
-    </form>
+  <main class="admin-page">
+    <h2>Espace sécurisé 🔒</h2>
+    <p>Entrez le mot de passe pour activer le mode administrateur :</p>
+    <input type="password" id="password" placeholder="Mot de passe" />
+    <button id="login">Connexion</button>
 
-    <p id="error" class="error"></p>
+    <p id="status"></p>
+    <hr />
+    <button id="logout" style="display:none;">🔓 Désactiver le mode administrateur</button>
   </main>
+
+  <footer class="site-footer">
+    <p>© 2025 Anaëlle — Tous droits réservés</p>
+  </footer>
 
   <script src="js/admin.js"></script>
 </body>

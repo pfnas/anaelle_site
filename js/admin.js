@@ -1,15 +1,43 @@
-const ADMIN_KEY = "anaelle_admin_mode";
+(() => {
+  const ADMIN_KEY = 'anaelle_admin_mode';
+  const PASS = 'anaelle123';
 
-document.getElementById("loginForm").addEventListener("submit", (e) => {
-  e.preventDefault();
-  const pass = document.getElementById("password").value.trim();
+  const password = document.getElementById('password');
+  const login = document.getElementById('login');
+  const logout = document.getElementById('logout');
+  const status = document.getElementById('status');
 
-  if (pass === "anaelle123") {
-    localStorage.setItem(ADMIN_KEY, "true");
-    window.location.href = "index.html";
-  } else {
-    const error = document.getElementById("error");
-    error.textContent = "❌ Mot de passe incorrect";
-    error.style.color = "red";
+  const isAdmin = localStorage.getItem(ADMIN_KEY) === 'true';
+
+  function updateUI() {
+    if (localStorage.getItem(ADMIN_KEY) === 'true') {
+      status.textContent = '✅ Mode administrateur actif.';
+      password.style.display = 'none';
+      login.style.display = 'none';
+      logout.style.display = 'inline-block';
+    } else {
+      status.textContent = '❌ Mode visiteur (édition désactivée).';
+      password.style.display = 'inline-block';
+      login.style.display = 'inline-block';
+      logout.style.display = 'none';
+    }
   }
-});
+
+  login.onclick = () => {
+    if (password.value === PASS) {
+      localStorage.setItem(ADMIN_KEY, 'true');
+      alert('✅ Mode administrateur activé.');
+      updateUI();
+    } else {
+      alert('❌ Mot de passe incorrect.');
+    }
+  };
+
+  logout.onclick = () => {
+    localStorage.setItem(ADMIN_KEY, 'false');
+    alert('🔒 Mode administrateur désactivé.');
+    updateUI();
+  };
+
+  updateUI();
+})();

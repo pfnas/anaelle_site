@@ -68,7 +68,7 @@ button:hover { background: #ffbd39; color: #000; }
 .galerie, .content {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
+  gap: 2rem;
   padding: 20px;
 }
 
@@ -173,7 +173,7 @@ main {
 .galerie {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
+  gap: 2rem;
   justify-items: center;
 }
 
@@ -253,37 +253,75 @@ main {
   transform: scale(1.1);
 }
 
-/* === ADMIN PAGE === */
+/*
+=====================================================
+  7. PAGE ADMIN (CONNEXION) - Centré et Aligné
+=====================================================
+*/
 .admin-page {
-  text-align: center;
-  padding: 2rem;
+    /* Centrage de la boîte sur la page */
+    display: flex; /* Active Flexbox */
+    flex-direction: column; /* Aligne les éléments verticalement */
+    align-items: center; /* Centre horizontalement les éléments */
+    justify-content: center; /* Centre verticalement (si le parent est grand) */
+    text-align: center;
+    
+    padding: 2rem;
+    max-width: 400px; 
+    margin: 4rem auto; /* Marge automatique pour centrer la boîte */
+    
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border: 5px solid #000;
 }
 
-.admin-page input[type=password] {
-  padding: 0.6rem;
-  font-size: 1rem;
-  border-radius: 8px;
-  border: 2px solid #ff4d8d;
-  margin-top: 1rem;
+.admin-page h2 {
+    font-size: 2rem;
+    color: #ff4d8d;
+    margin-bottom: 1rem;
+}
+
+.admin-page p {
+    margin-bottom: 0.5rem; /* Réduit l'espacement pour plus de cohésion */
+}
+
+/* Styles pour le champ de mot de passe et le bouton de connexion */
+#password {
+    padding: 10px;
+    font-size: 1.1rem;
+    border: 2px solid #ff4d8d;
+    border-radius: 8px;
+    box-shadow: 2px 2px 0 #000;
+    width: 100%; /* Prend toute la largeur du conteneur parent (400px) */
+    margin-bottom: 15px;
 }
 
 .admin-page button {
-  background: #ff4d8d;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  padding: 0.6rem 1.2rem;
-  font-weight: bold;
-  margin: 1rem;
-  cursor: pointer;
-  transition: transform 0.15s;
+    background: #ff4d8d;
+    color: white;
+    border: 2px solid #000;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-family: 'Bangers', cursive;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 3px 3px 0 #000;
+    transition: transform 0.1s;
+    width: 100%; /* S'aligne avec le champ de mot de passe */
 }
 
-.admin-page button:hover {
-  transform: scale(1.05);
-  background: #ff2e76;
+/* Ligne de séparation */
+.admin-page hr {
+    width: 100%;
+    margin: 15px 0;
+    border-color: #eee;
 }
 
+#status {
+    margin-top: 15px;
+    font-weight: bold;
+}
 /* === MODE ADMIN ACTIF (BANNIÈRE OPTIONNELLE) === */
 .admin-banner {
   background: repeating-linear-gradient(45deg, #ff4d8d, #ff4d8d 10px, #fff 10px, #fff 20px);
@@ -357,3 +395,54 @@ main {
   transform: scale(1.05);
 }
 
+/* --- Styles pour le panneau d'administration (FINAL) --- */
+
+#admin-controls {
+    position: fixed; 
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%); 
+    background-color: #ff4d8d; 
+    padding: 10px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4), 0 0 0 3px #fff inset;
+    z-index: 2000;
+    display: flex;
+    gap: 10px; 
+    align-items: center;
+    border: 3px solid #000; 
+}
+
+#admin-controls button {
+    background: #fff; 
+    color: #ff4d8d; 
+    border: 2px solid #ff4d8d; 
+    font-family: 'Bangers', cursive; 
+    letter-spacing: 1px;
+    font-size: 1.1rem;
+    padding: 8px 15px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 0 #000;
+}
+
+#admin-controls button:hover {
+    background: #ff4d8d; 
+    color: #fff;
+    border-color: #fff;
+    transform: scale(1.05) translateY(-1px);
+}
+
+/* Bouton spécifique : Désactiver l'édition (le plus important à la fin) */
+#disable-admin {
+    background: #222 !important; /* Force le fond noir/sombre */
+    color: white !important;
+    border-color: white !important;
+    box-shadow: 2px 2px 0 #ff4d8d !important; /* Contraste sur l'ombre */
+}
+#disable-admin:hover {
+    background: #ff2e76 !important; 
+    color: white !important;
+    transform: scale(1.05);
+}
+
+/* ... (Les styles .delete-btn, .rubrique, etc., restent inchangés) ... */

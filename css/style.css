@@ -20,7 +20,6 @@ header, footer {
   text-shadow: 3px 3px 0 #000;
 }
 
-
 nav a {
   margin: 0 10px;
   font-weight: bold;
@@ -465,15 +464,10 @@ main {
     margin-left: auto;
 }
 
-/* Positionnez le bouton hamburger à droite du logo sur mobile */
-.menu-toggle {
-    /* La propriété margin-left: auto poussera le bouton à l'extrême droite */
-    margin-left: auto; 
-    
-    /* ... (le reste de vos styles pour .menu-toggle) ... */
-}
+
 /* Le bouton hamburger est invisible par défaut sur grand écran */
 .menu-toggle {
+   margin-left: auto; 
     display: none; /* Cache le bouton sur Desktop */
     background: none;
     border: none;
@@ -524,6 +518,8 @@ main {
     /* 3. Afficher le menu lorsqu'il a la classe 'active' */
     #main-nav.active {
         transform: translateX(0); /* Le fait glisser pour l'afficher */
+        width: 25%;
+        background-color: #ff2e63;
     }
 
     /* 4. Styles pour les liens à l'intérieur du menu mobile */

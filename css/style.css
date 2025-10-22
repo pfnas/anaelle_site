@@ -460,9 +460,9 @@ main {
     margin-left: auto;
 }
 /* Déplacez le menu de navigation à droite */
-#main-nav {
+/* #main-nav {
     margin-left: auto;
-}
+} */
 
 
 /* Le bouton hamburger est invisible par défaut sur grand écran */
@@ -482,4 +482,11 @@ main {
     text-decoration: none;
     color: #000;
     font-weight: 600;
+}
+@media (max-width: 768px) {
+  .site-header{
+    flex-direction: column;
+    justify-content: space-around;
+    margin-left:0px;
+  }
 }

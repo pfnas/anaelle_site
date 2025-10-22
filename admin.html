@@ -13,18 +13,40 @@
     <nav>
       <a href="index.html">Accueil</a>
       <a href="galerie.html">Galerie</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </header>
 
   <main class="admin-page">
     <h2>Espace sécurisé 🔒</h2>
-    <p>Entrez le mot de passe pour activer le mode administrateur :</p>
-    <input type="password" id="password" placeholder="Mot de passe" />
-    <button id="login">Connexion</button>
+    
+    <div id="login-controls">
+        <p>Entrez le mot de passe pour activer le mode administrateur :</p>
+        <input type="password" id="password" placeholder="Mot de passe" />
+        <button id="login">Connexion</button>
+        <p id="status"></p>
+        <hr />
+    </div>
 
-    <p id="status"></p>
-    <hr />
-    <button id="logout" style="display:none;">🔓 Désactiver le mode administrateur</button>
+    <div id="secure-admin-content" style="display: none;"> 
+        
+        <h3>Gestion & Statistiques</h3>
+        <h3>Vous pouvez modifier les rubriques sur votre site</h3>
+        
+        <h5>
+          <a href="https://formspree.io/forms/mpwygann/submissions" target="_blank" class="admin-link-btn">
+            📥 Accéder aux Données Clients (mails, téléphone, messages...)
+        </a>
+        </h5>
+        <!-- <div id="stats-section">
+            <p>Statistiques des vues :</p>
+            <p>Aujourd'hui : <span id="views-today">0</span></p>
+            <p>Total : <span id="views-total">0</span></p>
+        </div> -->
+        
+        <hr />
+        <button id="logout">🔓 Désactiver le mode administrateur</button>
+    </div>
   </main>
 
   <footer class="site-footer">
@@ -32,5 +54,5 @@
   </footer>
 
   <script src="js/admin.js"></script>
-</body>
+  <script src="js/index.js"></script> </body>
 </html>

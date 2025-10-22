@@ -1,0 +1,62 @@
+/* 8. STYLES POUR LA PAGE CONTACT */
+.page-contact {
+    max-width: 700px;
+    margin: 40px auto; /* Centre le bloc sur la page */
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.page-contact h2 {
+    text-align: center;
+    color: #ff4d8d;
+    margin-bottom: 20px;
+}
+/* 8. STYLES POUR LA PAGE CONTACT */
+.page-contact {
+    max-width: 700px;
+    margin: 40px auto; /* Centre le bloc sur la page */
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.page-contact h2 {
+    text-align: center;
+    color: #ff4d8d;
+    margin-bottom: 20px;
+}
+.contact-form {
+    display: flex;
+    flex-direction: column; /* Aligne les groupes les uns sous les autres */
+}
+
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column; /* Aligne label et input l'un sous l'autre */
+}
+
+.contact-form label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="tel"],
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* S'assure que le padding n'augmente pas la largeur totale */
+    font-size: 1rem;
+}
+
+.contact-form textarea {
+    resize: vertical; /* Permet de redimensionner uniquement verticalement */
+}

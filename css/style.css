@@ -399,7 +399,7 @@ main {
 
 #admin-controls {
     position: fixed; 
-    bottom: 20px;
+    bottom: 0px;/*----panneau de ntrole tout en bas pour ne pas cacher*/
     left: 50%;
     transform: translateX(-50%); 
     background-color: #ff4d8d; 

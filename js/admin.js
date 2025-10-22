@@ -1,68 +1,112 @@
 // Fichier : js/admin.js
 
 (() => {
+    // --- CLÉS ---
     const ADMIN_KEY = 'anaelle_admin_mode';
-    // ATTENTION : En production, un mot de passe en dur n'est PAS sécurisé.
-    // Il faudrait utiliser un système côté serveur. Pour cet exercice, nous utilisons un mot de passe simple.
+    // Clés pour les statistiques de vues (doivent correspondre à celles de index.js)
+    const VIEWS_KEY = 'anaelle_site_views_total';
+    const VIEWS_DAILY_KEY = 'anaelle_site_views_daily';
+
+    // ATTENTION : Le mot de passe en dur n'est PAS sécurisé en production.
     const CORRECT_PASSWORD = "anaelle123"; 
 
-    // Références aux éléments du DOM
+    // --- SÉLECTEURS DU DOM ---
     const passwordInput = document.getElementById('password');
     const loginBtn = document.getElementById('login');
-    const logoutBtn = document.getElementById('logout');
-    const statusP = document.getElementById('status');
-    const mainContent = document.querySelector('.admin-page');
+    const statusText = document.getElementById('status');
+    
+    // SÉLECTEURS POUR LES ZONES D'AFFICHAGE/MASQUAGE
+    const loginControls = document.getElementById('login-controls');
+    const secureContent = document.getElementById('secure-admin-content');
+    const logoutBtn = secureContent ? secureContent.querySelector('#logout') : null; // Sélectionne le bouton logout DANS la zone sécurisée
 
     let isAdmin = localStorage.getItem(ADMIN_KEY) === 'true';
 
-    // --- Fonctions de base ---
+    // --- FONCTIONS DE GESTION DES STATS ---
+
+    // Fonction pour lire et afficher les compteurs stockés dans localStorage
+    function loadStats() {
+        const totalViews = localStorage.getItem(VIEWS_KEY) || '0';
+        const dailyViews = localStorage.getItem(VIEWS_DAILY_KEY) || '0';
+        
+        const viewsTotalEl = document.getElementById('views-total');
+        const viewsTodayEl = document.getElementById('views-today');
+        
+        if (viewsTotalEl) viewsTotalEl.textContent = totalViews;
+        if (viewsTodayEl) viewsTodayEl.textContent = dailyViews;
+    }
+
+
+    // --- FONCTIONS DE GESTION DU STATUT ADMIN ET RENDU ---
 
     function setAdminMode(state) {
         isAdmin = state;
         localStorage.setItem(ADMIN_KEY, state ? 'true' : 'false');
-        renderAdminStatus();
+        checkLoginStatus(); // On utilise checkLoginStatus pour le rendu
     }
 
-    function renderAdminStatus() {
+    // Fonction principale qui affiche le contenu basé sur le statut
+    function checkLoginStatus() {
         if (isAdmin) {
-            statusP.textContent = "✅ Mode administrateur ACTIF ! Vous pouvez modifier vos rubriques.";
-            statusP.style.color = 'green';
-            loginBtn.style.display = 'none';
-            passwordInput.style.display = 'none';
-            logoutBtn.style.display = 'block'; 
+            statusText.textContent = "✅ Mode administrateur ACTIF !";
+            statusText.style.color = 'green';
+            
+            // Masquer les contrôles de connexion
+            if (loginControls) loginControls.style.display = 'none';
+            
+            // Afficher le contenu sécurisé et charger les stats
+            if (secureContent) secureContent.style.display = 'block'; 
+            loadStats(); 
+
         } else {
-            statusP.textContent = "Mode administrateur INACTIF. Connectez-vous pour commencer l'édition.";
-            statusP.style.color = 'black';
-            loginBtn.style.display = 'block';
-            passwordInput.style.display = 'block';
-            logoutBtn.style.display = 'none';
+            statusText.textContent = "Mode administrateur INACTIF. Connectez-vous pour commencer l'édition.";
+            statusText.style.color = 'black';
+
+            // Afficher les contrôles de connexion
+            if (loginControls) loginControls.style.display = 'block';
+            
+            // Masquer le contenu sécurisé
+            if (secureContent) secureContent.style.display = 'none';
         }
     }
 
-    // --- Gestion de la connexion (Login) ---
 
-    loginBtn.addEventListener('click', () => {
-        if (passwordInput.value === CORRECT_PASSWORD) {
+    // --- GESTION DES ÉVÉNEMENTS ---
+
+    function handleLogin() {
+        if (passwordInput && passwordInput.value === CORRECT_PASSWORD) {
             setAdminMode(true);
-            // Redirection optionnelle vers la page d'accueil pour commencer l'édition
+            // Redirection vers index.html pour commencer l'édition
+            // Note: Nous laissons ici l'option de recharger la page pour l'admin.
+            // Une redirection vers index.html pourrait être plus pratique.
             // window.location.href = 'index.html'; 
             
         } else {
-            statusP.textContent = "❌ Mot de passe incorrect.";
-            statusP.style.color = 'red';
-            passwordInput.value = ''; // Efface le mot de passe
+            statusText.textContent = "❌ Mot de passe incorrect.";
+            statusText.style.color = 'red';
+            if (passwordInput) passwordInput.value = ""; // Efface le mot de passe
         }
-    });
+    }
 
-    // --- Gestion de la déconnexion (Logout) ---
-    // Ce bouton est une sécurité, mais le bouton "Désactiver l'édition" sur index.html est la méthode principale.
-
-    logoutBtn.addEventListener('click', () => {
+    function handleLogout() {
         setAdminMode(false);
-        // Après déconnexion, renvoyer l'utilisateur vers la page d'accueil
+        // Rediriger vers l'accueil après déconnexion
         window.location.href = 'index.html'; 
-    });
+    }
 
-    // Rendu initial au chargement de la page
-    renderAdminStatus();
+    // Attribution des écouteurs d'événements
+    if (loginBtn) loginBtn.addEventListener('click', handleLogin);
+    if (logoutBtn) logoutBtn.addEventListener('click', handleLogout);
+
+    // Activer la connexion avec la touche Entrée
+    if (passwordInput) {
+        passwordInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                handleLogin();
+            }
+        });
+    }
+
+    // --- INITIALISATION ---
+    checkLoginStatus(); 
 })();

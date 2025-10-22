@@ -11,13 +11,18 @@
   
   <header class="site-header">
     <h1 class="logo editable" data-key="site_title">Anaëlle</h1>
-    <nav>
+    
+    <button class="menu-toggle" aria-controls="main-nav" aria-expanded="false">
+        <span class="hamburger"></span>
+    </button>
+    
+    <nav id="main-nav">
       <a href="index.html">Accueil</a>
       <a href="galerie.html">Galerie</a>
       <a href="contact.html">Contact</a>
       <a href="admin.html">Admin</a>
     </nav>
-  </header>
+</header>
 
   <section class="hero editable" data-key="hero_section">
     <h2>Bienvenue dans l'univers d'Anaëlle</h2>
@@ -38,5 +43,6 @@
   </footer>
 
   <script src="js/index.js"></script>
+  <script src="/js/menu.js"></script>
 </body>
 </html>

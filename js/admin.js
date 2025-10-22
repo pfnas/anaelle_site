@@ -20,14 +20,14 @@
     const secureContent = document.getElementById('secure-admin-content');
     const logoutBtn = secureContent ? secureContent.querySelector('#logout') : null; // Sélectionne le bouton logout DANS la zone sécurisée
 
-    let isAdmin = localStorage.getItem(ADMIN_KEY) === 'true';
+    let isAdmin = sessionStorage.getItem(ADMIN_KEY) === 'true';
 
     // --- FONCTIONS DE GESTION DES STATS ---
 
-    // Fonction pour lire et afficher les compteurs stockés dans localStorage
+    // Fonction pour lire et afficher les compteurs stockés dans sessionStorage
     function loadStats() {
-        const totalViews = localStorage.getItem(VIEWS_KEY) || '0';
-        const dailyViews = localStorage.getItem(VIEWS_DAILY_KEY) || '0';
+        const totalViews = sessionStorage.getItem(VIEWS_KEY) || '0';
+        const dailyViews = sessionStorage.getItem(VIEWS_DAILY_KEY) || '0';
         
         const viewsTotalEl = document.getElementById('views-total');
         const viewsTodayEl = document.getElementById('views-today');

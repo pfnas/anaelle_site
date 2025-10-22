@@ -7,20 +7,24 @@
     <link rel="stylesheet" href="css/contact.css" />
 </head>
 <body>
-    <header class="site-header">
+   <header class="site-header">
     <h1 class="logo editable" data-key="site_title">Anaëlle</h1>
-    <nav>
+    
+    <button class="menu-toggle" aria-controls="main-nav" aria-expanded="false">
+        <span class="hamburger"></span>
+    </button>
+    
+    <nav id="main-nav">
       <a href="index.html">Accueil</a>
       <a href="galerie.html">Galerie</a>
       <a href="contact.html">Contact</a>
       <a href="admin.html">Admin</a>
     </nav>
-  </header>
+</header>
     <main class="page-contact">
         <h2>Contactez Anaëlle</h2>
-        <p>Veuillez remplir le formulaire ci-dessous., nous vous rentaerons le plus vite possible.</p>
-        
-<form action="https://formspree.io/f/mpwygann" method="POST" class="contact-form">
+        <p>Veuillez remplir le formulaire ci-dessous., nous vous recontactons le plus vite possible.</p>        
+        <form action="https://formspree.io/f/mpwygann" method="POST" class="contact-form">
     
     <div class="form-group">
         <label for="nom">Nom :</label>
@@ -58,10 +62,12 @@
     
     <button type="submit">Envoyer le message</button>
     
-</form>
+        </form>
     </main>
-        <footer class="site-footer">
-    <p class="editable" data-key="footer_text">© 2025 Anaëlle — Tous droits réservés</p>
-  </footer>
-    </body>
+    <script src="./js/menu.js"></script>
+    <footer class="site-footer">
+        <p class="editable" data-key="footer_text">© 2025 Anaëlle — Tous droits réservés</p>
+    </footer>
+</body>
 </html>
+

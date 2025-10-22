@@ -12,14 +12,18 @@
 
   <header class="site-header">
     <h1 class="logo editable" data-key="site_title">Anaëlle</h1>
-    <nav>
+    
+    <button class="menu-toggle" aria-controls="main-nav" aria-expanded="false">
+        <span class="hamburger"></span>
+    </button>
+    
+    <nav id="main-nav">
       <a href="index.html">Accueil</a>
       <a href="galerie.html">Galerie</a>
+      <a href="contact.html">Contact</a>
       <a href="admin.html">Admin</a>
-      <a href="#">Pay Pal</a>
-      <a href="#">Contact</a>
     </nav>
-  </header>
+</header>
 
   <main>
     <h2 class="page-title editable" data-key="gallery_title">Galerie Photo</h2>
@@ -40,5 +44,6 @@
 
   <script src="js/galerie.js"></script>
   <script src="./js/index.js"></script>
+  <script src="/js/menu.js"></script>
 </body>
 </html>

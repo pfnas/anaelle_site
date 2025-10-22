@@ -19,7 +19,7 @@
     if (menuToggle && mainNav) {
         menuToggle.addEventListener('click', toggleMenu);
         
-        // Optionnel : Fermer le menu si l'utilisateur clique sur un lien (utile sur mobile)
+        // Optionnel : Fermer le menu si l'utilisateur clique sur un lien 
         const navLinks = mainNav.querySelectorAll('a');
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
